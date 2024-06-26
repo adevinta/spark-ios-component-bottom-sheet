@@ -5,56 +5,54 @@ TODO:
 
 ## Specifications
 
-The bottomsheet specifications on Zeroheight is [here](TODO:).
+The bottomsheet specification on Zeroheight can be found [here](https://spark.adevinta.com/1186e1705/p/67d41e-bottom-sheet).
 
 ![Figma anatomy](https://github.com/adevinta/spark-ios-component-bottom-sheet/blob/main/.github/assets/anatomy.png)
 
 ## Usage
 
-BottomSheet is available both in UIKit and SwiftUI.
+In iOS, the native bottom sheet component from Apple is used for both UIKit and SwiftUI. Many of the features of the component given in the specifications are only available from iOS 16 upwards. 
+To help with the sizing of the bottom sheet, some helper functions have been added.
 
 ### UIKit
+Two custom detents have been added:
+- maxHeight: This is similar to the iOS `large` which takes the full height. As opposed to the `large` detent, the bottom sheet expands to almost the full height, but the background is not made smaller.
+- compressedHeight(of view: UIView): This detent expands to the compressed height of the view.
+- expandedHeight(of view: UIView): This detent expands to the expanded height of the view
 
-### Usage
-
-#### Subviews
-
-* `TODO`: TODO.
-
-#### Properties
-
-* `TODO`: TODO.
-
-#### Published Properties
-
-* `TODO`: TODO.
-
-#### Initialization
-
-```swift
-let bottomsheet = BottomSheetUIView(
-    TODO: TODO
-)
+### Sample
 ```
-
-#### Getter / Setter
-
-TODO
-
+let controller = ExampleBottomSheetViewController()
+if #available(iOS 16.0, *) {
+   if let sheet = controller.sheetPresentationController {
+     sheet.detents = [.compressedHeight(of: controller.view)]
+   }
+ }
+ present(controller, animated: true)
+```
 
 ### SwiftUI
+Custom detents:
+- maxHeight: This is similar to the iOS `large` which takes the full height. As opposed to the `large` detent, the bottom sheet expands to almost the full height, but the background is not made smaller.
+- there is no custom detent for the height. Instead there is a general view modifier to calculate the view height which can be used with the existing height detent.
 
-#### Initialization
-
-```swift
-let bottomsheet = BottomSheetView(
-    TODO: TODO
-)
+### Sample
 ```
-
-#### Modifier
-
-TODO
+    @State private var height: CGFloat = 100
+    
+    var body: some View {
+        Button("Show bottom sheet with longer text") {
+            self.showingMediumSheet.toggle()
+        }
+        .sheet(isPresented: $showingMediumSheet) {
+            BottomSheetPresentedView(description: mediumDescription) {
+                self.showingMediumSheet.toggle()
+            }
+            .readHeight(self.$height)
+            .presentationDetents([.height(self.height), .maxHeight])
+        }
+    }
+```
 
 ## License
 
