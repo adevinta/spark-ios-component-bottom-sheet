@@ -1,6 +1,6 @@
 //
-//  ViewHeightModifier.swift
-//  SparkCore
+//  View-Height.swift
+//  SparkBottomSheet
 //
 //  Created by Michael Zimmermann on 17.05.24.
 //  Copyright © 2024 Adevinta. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  UISheetPresentationController-customHeightDetent.swift
-//  SparkCore
+//  SparkBottomSheet
 //
 //  Created by Michael Zimmermann on 14.05.24.
 //  Copyright © 2024 Adevinta. All rights reserved.
