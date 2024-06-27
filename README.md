@@ -1,7 +1,8 @@
 
 # BottomSheet
 
-TODO: 
+In iOS, the native bottom sheet component from Apple is used for both UIKit and SwiftUI. Many of the features of the component given in the specifications are only available from iOS 16 upwards. 
+To help with the sizing of the bottom sheet, some helper functions have been added.
 
 ## Specifications
 
@@ -10,9 +11,6 @@ The bottomsheet specification on Zeroheight can be found [here](https://spark.ad
 ![Figma anatomy](https://github.com/adevinta/spark-ios-component-bottom-sheet/blob/main/.github/assets/anatomy.png)
 
 ## Usage
-
-In iOS, the native bottom sheet component from Apple is used for both UIKit and SwiftUI. Many of the features of the component given in the specifications are only available from iOS 16 upwards. 
-To help with the sizing of the bottom sheet, some helper functions have been added.
 
 ### UIKit
 Two custom detents have been added:
