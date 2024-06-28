@@ -1,6 +1,6 @@
 //
-//  BottomSheetDetentViewModifier.swift
-//  SparkCore
+//  View-Height.swift
+//  SparkBottomSheet
 //
 //  Created by Michael Zimmermann on 17.05.24.
 //  Copyright © 2024 Adevinta. All rights reserved.
@@ -38,6 +38,19 @@ struct ViewHeightModifier: ViewModifier {
 
 public extension View {
     /// A view modifier for reading the height of a view. The height will be set in the given binding.
+    /// Sample:
+    /// ```
+    ///    Button("Show bottom sheet with longer text") {
+    ///        self.showingMediumSheet.toggle()
+    ///    }
+    ///    .sheet(isPresented: $showingMediumSheet) {
+    ///        BottomSheetPresentedView(description: mediumDescription) {
+    ///            self.showingMediumSheet.toggle()
+    ///        }
+    ///        .readHeight(self.$mediumHeight)
+    ///        .presentationDetents([.height(self.mediumHeight), .large])
+    ///    }
+    /// ```
     func readHeight(_ height: Binding<CGFloat>) -> some View {
         self
             .modifier(ViewHeightModifier(height: height))
