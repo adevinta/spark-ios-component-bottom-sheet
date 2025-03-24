@@ -3,7 +3,7 @@
 //  SparkBottomSheet
 //
 //  Created by Michael Zimmermann on 14.05.24.
-//  Copyright © 2024 Adevinta. All rights reserved.
+//  Copyright © 2024 Leboncoin. All rights reserved.
 //
 
 import UIKit

@@ -1,55 +1,67 @@
+# Bottom Sheet
 
-# BottomSheet
+**Spark** is the [Leboncoin](https://www.leboncoin.fr/)'s _Design System_.
 
-In iOS, the native bottom sheet component from Apple is used for both UIKit and SwiftUI. Many of the features of the component given in the specifications are only available from iOS 16 upwards. 
-To help with the sizing of the bottom sheet, some helper functions have been added.
+The repository here contains only the **iOS BottomSheet** for _SwiftUI_ and _UIKit_.
+
+You can also see all of our Spark iOS repositories on [Github](https://github.com/orgs/leboncoin/repositories?q=spark-ios+sort%3Aname-asc).
 
 ## Specifications
 
-The bottomsheet specification on Zeroheight can be found [here](https://spark.adevinta.com/1186e1705/p/67d41e-bottom-sheet).
+The bottom sheet specifications on Zeroheight is [here](https://spark.adevinta.com/1186e1705/p/295e88-bottom-sheet).
 
-![Figma anatomy](https://github.com/adevinta/spark-ios-component-bottom-sheet/blob/main/.github/assets/anatomy.png)
+![Figma anatomy](https://github.com/leboncoin/spark-ios-component-bottom-sheet/blob/main/.github/assets/anatomy.png)
 
-## Usage
+## Technical Documentation
 
-### UIKit
-Two custom detents have been added:
-- maxHeight: This is similar to the iOS `large` which takes the full height. As opposed to the `large` detent, the bottom sheet expands to almost the full height, but the background is not made smaller.
-- compressedHeight(of view: UIView): This detent expands to the compressed height of the view.
-- expandedHeight(of view: UIView): This detent expands to the expanded height of the view
+You are a developer ? A technical documentation in _DocC_ is available [here](https://leboncoin.github.io/spark-ios-component-bottom-sheet/).
 
-### Sample
-```
-let controller = ExampleBottomSheetViewController()
-if #available(iOS 16.0, *) {
-   if let sheet = controller.sheetPresentationController {
-     sheet.detents = [.compressedHeight(of: controller.view)]
-   }
- }
- present(controller, animated: true)
+### Swift Package Manager
+
+_Note: Instructions below are for using **SPM** without the Xcode UI. It's the easiest to go to your Project Settings -> Swift Packages and add SparkBottomSheet from there._
+
+To integrate using Apple's Swift package manager, without Xcode integration, add the following as a dependency to your `Package.swift`:
+
+```swift
+.package(url: "https://github.com/leboncoin/spark-ios-component-bottom-sheet.git", .upToNextMajor(from: "1.0.0"))
 ```
 
-### SwiftUI
-Custom detents:
-- maxHeight: This is similar to the iOS `large` which takes the full height. As opposed to the `large` detent, the bottom sheet expands to almost the full height, but the background is not made smaller.
-- there is no custom detent for the height. Instead there is a general view modifier to calculate the view height which can be used with the existing height detent.
+and then specify `SparkBottomSheet` as a dependency of the Target in which you wish to use the SparkBottomSheet.
 
-### Sample
-```
-    @State private var height: CGFloat = 100
-    
-    var body: some View {
-        Button("Show bottom sheet with longer text") {
-            self.showingMediumSheet.toggle()
-        }
-        .sheet(isPresented: $showingMediumSheet) {
-            BottomSheetPresentedView(description: mediumDescription) {
-                self.showingMediumSheet.toggle()
-            }
-            .readHeight(self.$height)
-            .presentationDetents([.height(self.height), .maxHeight])
-        }
-    }
+Here's an example `Package.swift`:
+
+```swift
+// swift-tools-version:5.9
+import PackageDescription
+
+let package = Package(
+    name: "MyPackage",
+    platforms: [
+        .iOS(.v16)
+    ],
+    products: [
+        .library(
+            name: "MyPackage",
+            targets: ["MyPackage"]),
+    ],
+    dependencies: [
+        .package(
+            url: "https://github.com/leboncoin/spark-ios-component-bottom-sheet.git",
+            .upToNextMajor(from: "1.0.0")
+        )
+    ],
+    targets: [
+        .target(
+            name: "MyPackage",
+            dependencies: [
+                .product(
+                    name: "SparkBottomSheet",
+                    package: "spark-ios-component-bottom-sheet"
+                ),
+            ]
+        )
+    ]
+)
 ```
 
 ## License
@@ -57,7 +69,7 @@ Custom detents:
 ```
 MIT License
 
-Copyright (c) 2024 Adevinta
+Copyright (c) 2024 Leboncoin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
