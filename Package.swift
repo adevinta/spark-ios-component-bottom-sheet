@@ -5,14 +5,14 @@ import PackageDescription
 
 // swiftlint:disable all
 let package = Package(
-    name: "SparkBottomSheet",
+    name: "SparkComponentBottomSheet",
     platforms: [
         .iOS(.v16)
     ],
     products: [
         .library(
-            name: "SparkBottomSheet",
-            targets: ["SparkBottomSheet"]
+            name: "SparkComponentBottomSheet",
+            targets: ["SparkComponentBottomSheet"]
         ),
         .library(
             name: "SparkBottomSheetTesting",
@@ -33,7 +33,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "SparkBottomSheet",
+            name: "SparkComponentBottomSheet",
             dependencies: [
                 .product(
                     name: "SparkCommon",
@@ -49,7 +49,7 @@ let package = Package(
         .target(
             name: "SparkBottomSheetTesting",
             dependencies: [
-                "SparkBottomSheet",
+                "SparkComponentBottomSheet",
                 .product(
                     name: "SparkCommon",
                     package: "spark-ios-common"
@@ -72,7 +72,7 @@ let package = Package(
         .testTarget(
             name: "SparkBottomSheetUnitTests",
             dependencies: [
-                "SparkBottomSheet",
+                "SparkComponentBottomSheet",
                 "SparkBottomSheetTesting",
                 .product(
                     name: "SparkCommonTesting",
@@ -88,7 +88,7 @@ let package = Package(
         .testTarget(
             name: "SparkBottomSheetSnapshotTests",
             dependencies: [
-                "SparkBottomSheet",
+                "SparkComponentBottomSheet",
                 "SparkBottomSheetTesting",
                 .product(
                     name: "SparkCommonSnapshotTesting",
