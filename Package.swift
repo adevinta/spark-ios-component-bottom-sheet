@@ -15,8 +15,8 @@ let package = Package(
             targets: ["SparkComponentBottomSheet"]
         ),
         .library(
-            name: "SparkBottomSheetTesting",
-            targets: ["SparkBottomSheetTesting"]
+            name: "SparkComponentBottomSheetTesting",
+            targets: ["SparkComponentBottomSheetTesting"]
         ),
     ],
     dependencies: [
@@ -47,7 +47,7 @@ let package = Package(
             path: "Sources/Core"
         ),
         .target(
-            name: "SparkBottomSheetTesting",
+            name: "SparkComponentBottomSheetTesting",
             dependencies: [
                 "SparkComponentBottomSheet",
                 .product(
@@ -70,10 +70,10 @@ let package = Package(
             path: "Sources/Testing"
         ),
         .testTarget(
-            name: "SparkBottomSheetUnitTests",
+            name: "SparkComponentBottomSheetUnitTests",
             dependencies: [
                 "SparkComponentBottomSheet",
-                "SparkBottomSheetTesting",
+                "SparkComponentBottomSheetTesting",
                 .product(
                     name: "SparkCommonTesting",
                     package: "spark-ios-common"
@@ -86,10 +86,10 @@ let package = Package(
             path: "Tests/UnitTests"
         ),
         .testTarget(
-            name: "SparkBottomSheetSnapshotTests",
+            name: "SparkComponentBottomSheetSnapshotTests",
             dependencies: [
                 "SparkComponentBottomSheet",
-                "SparkBottomSheetTesting",
+                "SparkComponentBottomSheetTesting",
                 .product(
                     name: "SparkCommonSnapshotTesting",
                     package: "spark-ios-common"
