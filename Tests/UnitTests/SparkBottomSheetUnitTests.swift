@@ -1,5 +1,5 @@
 //
-//  SparkBottomSheetUnitTests.swift
+//  SparkComponentBottomSheetUnitTests.swift
 //  SparkComponentBottomSheet
 //
 //  Created by robin.lemaire on 12/06/2024.
