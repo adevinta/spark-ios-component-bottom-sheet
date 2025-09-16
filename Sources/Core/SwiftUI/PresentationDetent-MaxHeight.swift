@@ -8,12 +8,10 @@
 
 import SwiftUI
 
-@available(iOS 16.0, *)
 public extension PresentationDetent {
     static let maxHeight = Self.custom(MaxHeightPresentationDetent.self)
 }
 
-@available(iOS 16.0, *)
 private struct MaxHeightPresentationDetent: CustomPresentationDetent {
     static func height(in context: Context) -> CGFloat? {
         return context.maxDetentValue - 1

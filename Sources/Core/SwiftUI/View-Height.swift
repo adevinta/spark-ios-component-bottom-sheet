@@ -1,6 +1,6 @@
 //
 //  View-Height.swift
-//  SparkBottomSheet
+//  SparkComponentBottomSheet
 //
 //  Created by Michael Zimmermann on 17.05.24.
 //  Copyright © 2024 Leboncoin. All rights reserved.
